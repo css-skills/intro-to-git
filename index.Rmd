@@ -1,15 +1,17 @@
 ---
-title: "TITLE HERE"
+title: "Introduction to Git and GitHub"
 description: |
-  DESCRIPTION HERE
+  Version control software such as Git is essential for collaboration and version
+  tracking on data science projects, however the learning curve for Git is quite steep. In this
+  workshop we will practice common workflows using Git and GitHub.
 author:
   - name: Benjamin Soltoff
     url: https://www.bensoltoff.com
     affiliation: University of Chicago
     affiliation_url: https://macss.uchicago.edu
-date: "DATE WHEN WORKSHOP WILL BE HELD"
+date: 2022-03-08
 creative_commons: CC BY-NC
-repository_url: https://github.com/css-skills/REPO
+repository_url: https://github.com/css-skills/intro-to-git
 output: distill::distill_article
 ---
 
