@@ -1,0 +1,139 @@
+---
+title: "Introduction to Git and GitHubr"
+author: "Benjamin Soltoff"
+date: "`r lubridate::today()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+set.seed(123)
+options(digits = 3)
+
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  cache = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  out.width = "80%",
+  fig.align = "center",
+  fig.width = 6,
+  fig.asp = 0.618 # 1 / phi
+)
+
+library(tidyverse)
+library(knitr)
+library(here)
+```
+
+# What is Git? What is GitHub?
+
+## Git
+
+
+## GitHub
+
+
+## Why should I use Git and GitHub?
+
+
+# Setting up Git
+
+## Install Git
+
+
+## Configure Git
+
+#### From R
+
+```r
+## install if needed (do this exactly once):
+## install.packages("usethis")
+
+library(usethis)
+use_git_config(user.name = "Jane Doe", user.email = "jane@example.org")
+```
+
+```r
+usethis::git_default_branch_configure()
+```
+
+#### From the shell
+
+```bash
+git config --global user.name 'Jane Doe'
+git config --global user.email 'jane@example.com'
+
+git config --global init.defaultBranch main
+```
+
+# Create a local Git repository
+
+## Initialize a Git repo
+
+
+## Make a commit
+
+
+## View commit history
+
+
+# Connect RStudio and GitHub
+
+## Sign up for GitHub
+
+
+## Create a Personal Access Token (PAT) on GitHub
+
+
+## Store PAT
+
+
+# Workflows
+
+
+## New project, GitHub first
+
+
+### Push to GitHub
+
+
+## Existing project, GitHub first
+
+
+## Existing project, GitHub last
+
+# Merge conflicts
+
+
+# Collaboration
+
+## Branching
+
+
+## Pull requests
+
+
+## Forking
+
+
+# Additional features of GitHub
+
+## Issues
+
+
+## Private repos
+
+
+## Make a GitHub repo browsable
+
+
+
+# Acknowledgments {.toc-ignore}
+
+- 
+
+# Session information {.toc-ignore}
+
+```{r session-info, cache = FALSE}
+sessioninfo::session_info()
+```

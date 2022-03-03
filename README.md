@@ -26,4 +26,5 @@ Room 295 in [1155 E 60th St](https://goo.gl/maps/7n7wDsd9mjnfRBtR8).
 
 ## Links
 
+- [*Happy Git and GitHub for the useR*](https://happygitwithr.com/) by Jenny Bryan, the STAT 545 TAs, and Jim Hester - a comprehensive guide to "git"-ing started with Git, GitHub, and R/RStudio
 
