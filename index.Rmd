@@ -3,7 +3,7 @@ title: "Introduction to Git and GitHub"
 description: |
   Version control software such as Git is essential for collaboration and version
   tracking on data science projects, however the learning curve for Git is quite steep. In this
-  workshop we will practice common workflows using Git and GitHub.
+  workshop we will introduce and practice common workflows using Git and GitHub.
 author:
   - name: Benjamin Soltoff
     url: https://www.bensoltoff.com

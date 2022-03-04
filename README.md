@@ -20,11 +20,21 @@ Room 295 in [1155 E 60th St](https://goo.gl/maps/7n7wDsd9mjnfRBtR8).
 
 ## Prework
 
-- Register for this workshop. Due to the current public health crisis, all participants must register in advance using [this form.](https://forms.gle/z5A4r9QmF9DYYcon7)
-- Please sign up for a free [RStudio Cloud account](https://rstudio.cloud).
-- Once you have created your RStudio Cloud account, [join the workshop organization.](https://rstudio.cloud/spaces/177434/join?access_code=cGV7c0V8%2Bpr0kFC5NkOX%2FgxNNhIm3PchWX1CjdBf)
+On the day of the workshop, please plan to work from a laptop that has the following installed:
 
-## Links
+- A recent version of R (>=4.1.0), which is available for free at https://cloud.r-project.org/
+- The most recent version of the RStudio Desktop Integrated Development Environment (IDE version 2022.02.0+443), available for free ([RStudio Desktop Open Source License](https://www.rstudio.com/products/rstudio/download/#download)).
+- The R packages we will use, which you can install by connecting to the internet, opening RStudio, and running at the command line:
+
+    ```r
+    install.packages(c("usethis", "gitcreds", "gh"))
+    ```
+
+- Restart your R session before using any newly installed packages
+
+We will be using GitHub in this workshop for version control and publishing. Sign up for a free GitHub.com account at <https://github.com/join> if you don't already have one.
+
+## Additional resources
 
 - [*Happy Git and GitHub for the useR*](https://happygitwithr.com/) by Jenny Bryan, the STAT 545 TAs, and Jim Hester - a comprehensive guide to "git"-ing started with Git, GitHub, and R/RStudio
 
