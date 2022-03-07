@@ -1,0 +1,367 @@
+---
+title: "Introduction to Git and GitHub"
+author: "Computation Skills Workshop"
+output: rcfss::xaringan
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  echo = FALSE,
+  cache = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  collapse = TRUE,
+  fig.retina = 2, fig.width = 12
+)
+
+library(tidyverse)
+library(here)
+library(knitr)
+library(here)
+library(countdown)
+library(flipbookr)
+library(usethis)
+
+set.seed(123)
+theme_set(theme_minimal(base_size = rcfss::base_size))
+```
+
+# Why Git?
+
+```{r fig.align = "center"}
+include_graphics(path = "img/bryan-1.jpeg")
+```
+
+.footnote[Source: [Excuse Me, Do You Have a Moment to Talk About Version Control?](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928)]
+
+--
+
+- Version control system
+- Repository
+
+---
+
+# Why GitHub?
+
+```{r fig.align = "center", out.width = "60%"}
+include_graphics(path = "https://octodex.github.com/images/original.png")
+```
+
+.footnote[Source: [GitHub](https://www.github.com)]
+
+---
+
+# Why bother?
+
+--
+
+## Will it hurt?
+
+**Yes** `r emo::ji("shrug")`
+
+- More complicated workflow
+- Clunky at first
+- Break bad habits
+
+--
+
+## What's the payoff?
+
+- Ease of access
+- Collaboration
+
+---
+
+# Install Git
+
+```{bash, echo = TRUE}
+which git
+```
+
+---
+
+# `r emo::ji("stopwatch")` Configure Git
+
+.pull-left[
+
+## `usethis`
+
+```r
+## install if needed
+## install.packages("usethis")
+
+library(usethis)
+use_git_config(
+  user.name = "Jane Doe",
+  user.email = "jane@example.org"
+)
+```
+
+```r
+# default branch named 'main'
+git_default_branch_configure()
+```
+
+]
+
+--
+
+.pull-right[
+
+## From the shell
+
+```bash
+git config --global user.name 'Jane Doe'
+git config --global user.email 'jane@example.com'
+
+git config --global init.defaultBranch main
+```
+
+]
+
+---
+
+# `r emo::ji("stopwatch")` Create a local Git repo
+
+- Run `use_course("css-skills/practice-repo")`
+- Create Git repo with `use_git()`
+- Practice generating **commits**
+
+---
+
+# `r emo::ji("key")` Key terms
+
+- Stage
+- Commit
+- Push
+
+---
+
+# `.gitignore`
+
+```r
+edit_git_ignore(scope = "project")
+```
+
+---
+
+# Connect RStudio and GitHub
+
+- Interacting with GitHub
+- Providing **credentials**
+
+--
+
+
+- Personal access token (PAT)
+
+---
+
+# `r emo::ji("stopwatch")` Painless authentication with PAT
+
+```r
+usethis::create_github_token()
+```
+
+```r
+> gitcreds::gitcreds_set()
+
+? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-> Adding new credentials...
+-> Removing credentials from cache...
+-> Done.
+```
+
+---
+
+# `r emo::ji("stopwatch")` Connect project to GitHub
+
+.pull-left[
+
+```r
+use_github()
+```
+
+]
+
+--
+
+.pull-right[
+
+```{r fig.align = "center"}
+include_graphics(path = "https://media.giphy.com/media/vmon3eAOp1WfK/giphy.gif")
+```
+
+]
+
+---
+
+# `r emo::ji("stopwatch")` New project, GitHub first
+
+- Create a Git controlled project already connected to GitHub
+
+1. Make a repo on GitHub
+1. New RStudio Project via `git clone`
+1. Copy files from the first project to the new project
+    - Stage
+    - Commit
+    - Push
+
+---
+
+# `r emo::ji("stopwatch")` Incorporating changes from GitHub
+
+1. Make a change on GitHub and commit
+1. **Pull** changes from GitHub locally
+
+---
+
+# Merge conflicts
+
+```{r fig.align = "center"}
+include_graphics(path = "img/car-merge.gif")
+```
+
+---
+
+# Merge conflicts
+
+```bash
+git pull origin main
+# Auto-merging README.md
+# CONFLICT (content): Merge conflict in README.md
+# Automatic merge failed; fix conflicts and then commit the result.
+```
+
+--
+
+```bash
+<<<<<<< HEAD:README.md
+Contact: ben@bensoltoff.com
+=======
+Please contact me at ben@bensoltoff.com
+>>>>>>> origin main:README.md
+```
+
+--
+
+- Resolving merge conflicts
+
+---
+
+# `r emo::ji("stopwatch")` Practice a merge conflict
+
+- Generate distinct changes in the README file
+    - One form locally
+    - Another form on GitHub
+- Attempt to push to GitHub
+- Pull from GitHub, resolve merge conflicts
+- Stage, commit, and push
+
+---
+
+# Git for collaboration
+
+```{r fig.align = "center"}
+include_graphics(path = "img/bryan-2.jpeg")
+```
+
+.footnote[Source: [Excuse Me, Do You Have a Moment to Talk About Version Control?](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928)]
+
+---
+
+# Branching
+
+```{r fig.align = "center"}
+include_graphics(path = "img/01 Git branch.svg")
+```
+
+.footnote[Source: [Bitbucket tutorials](https://www.atlassian.com/git/tutorials/using-branches)]
+
+---
+
+# `r emo::ji("stopwatch")` Create a branch
+
+1. Create a branch using RStudio
+1. Modify a file in the repo
+1. Stage, commit, and push to GitHub
+1. Check the repo on GitHub -- what has changed?
+
+---
+
+# Pull requests
+
+```{r fig.align = "center"}
+include_graphics(path = "https://www.plannedparenthood.org/uploads/filer_public_thumbnails/filer_public/b8/06/b806c909-7071-47aa-81ba-add09b3f0a07/fries.png__800x600_q75_subsampling-2.jpg")
+```
+
+---
+
+# Pull requests
+
+- Inform others about changes you've pushed
+- Discuss and review potential changes with collaborators
+- Easily add follow-up commits before changes are merged
+
+---
+
+# `r emo::ji("stopwatch")` Create a pull request
+
+1. Open a pull request from your new branch
+1. Merge the pull request on GitHub
+1. Pull the revised `main` branch to your local repo
+
+---
+
+# Forking
+
+```{r fig.align = "center"}
+include_graphics(path = "https://media.giphy.com/media/U4XP86hPyfy29A9tbl/giphy.gif")
+```
+
+---
+
+# Forking
+
+```r
+create_from_github("OWNER/REPO")
+```
+
+- Or interactively on GitHub
+
+---
+
+# `r emo::ji("stopwatch")` Forking
+
+1. Create a fork of [`css-skills/practice-repo`](https://github.com/css-skills/practice-repo)
+1. Stage, commit, push a change to GitHub
+1. Open a pull request to the original repo
+
+---
+
+# Other useful GitHub features
+
+- Issues
+- Private repos
+
+---
+
+# Other useful `usethis` functions
+
+- [Pull request helpers](https://usethis.r-lib.org/articles/pr-functions.html)
+- [All the `usethis` git functions](https://usethis.r-lib.org/reference/index.html#git-and-github)
+
+---
+
+# When in doubt...
+
+```{r fig.align = "center"}
+include_graphics(path = "https://imgs.xkcd.com/comics/git.png")
+```
+
+.footnote[Source: [xkcd](https://xkcd.com/1597/)]
+
+
+
+
