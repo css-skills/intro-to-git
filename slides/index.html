@@ -44,7 +44,7 @@ class: center, middle, inverse, title-slide
 
 # Why bother?
 
---
+.pull-left[
 
 ## Will it hurt?
 
@@ -52,14 +52,23 @@ class: center, middle, inverse, title-slide
 
 - More complicated workflow
 - Clunky at first
-- Break bad habits
-
---
+- Need to break bad habits
 
 ## What's the payoff?
 
 - Ease of access
 - Collaboration
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src="https://media.giphy.com/media/JuWT34QY0AodfuweLa/giphy.gif" style="display: block; margin: auto;" /&gt;
+
+]
+
 
 ---
 
@@ -71,6 +80,10 @@ which git
 ## /usr/bin/git
 ```
 
+--
+
+- [Install Git](https://git-scm.com/)
+
 ---
 
 # ⏱ Configure Git
@@ -80,8 +93,7 @@ which git
 ## `usethis`
 
 ```r
-## install if needed
-## install.packages("usethis")
+# install.packages("usethis")
 
 library(usethis)
 use_git_config(
@@ -116,7 +128,7 @@ git config --global init.defaultBranch main
 
 # ⏱ Create a local Git repo
 
-- Run `use_course("css-skills/practice-repo")`
+- Run `usethis::use_course("css-skills/practice-repo")` in the console
 - Create Git repo with `use_git()`
 - Practice generating **commits**
 
@@ -133,7 +145,7 @@ git config --global init.defaultBranch main
 # `.gitignore`
 
 ```r
-edit_git_ignore(scope = "project")
+usethis::edit_git_ignore(scope = "project")
 ```
 
 ---
@@ -157,12 +169,12 @@ usethis::create_github_token()
 ```
 
 ```r
-&gt; gitcreds::gitcreds_set()
+gitcreds::gitcreds_set()
 
-? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
--&gt; Adding new credentials...
--&gt; Removing credentials from cache...
--&gt; Done.
+#&gt; ? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+#&gt; -&gt; Adding new credentials...
+#&gt; -&gt; Removing credentials from cache...
+#&gt; -&gt; Done.
 ```
 
 ---
@@ -187,6 +199,14 @@ use_github()
 
 ---
 
+# Get a sitrep
+
+```r
+usethis::git_sitrep()
+```
+
+---
+
 # ⏱ New project, GitHub first
 
 - Create a Git controlled project already connected to GitHub
@@ -207,6 +227,54 @@ use_github()
 
 ---
 
+# Git for collaboration
+
+&lt;img src="img/bryan-2.jpeg" width="445" style="display: block; margin: auto;" /&gt;
+
+.footnote[Source: [Excuse Me, Do You Have a Moment to Talk About Version Control?](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928)]
+
+---
+
+# Git for collaboration
+
+&lt;img src="img/bryan-5.jpeg" width="445" style="display: block; margin: auto;" /&gt;
+
+.footnote[Source: [Excuse Me, Do You Have a Moment to Talk About Version Control?](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928)]
+
+---
+
+# Branching
+
+&lt;img src="img/01 Git branch.svg" style="display: block; margin: auto;" /&gt;
+
+.footnote[Source: [Bitbucket tutorials](https://www.atlassian.com/git/tutorials/using-branches)]
+
+---
+
+# ⏱ Create a branch
+
+1. Create a branch using RStudio
+1. Modify a file in the repo
+1. Stage, commit, and push to GitHub
+1. Check the repo on GitHub -- what has changed?
+
+---
+
+# Merging branches
+
+&lt;img src="img/02 Branch-1 kopiera.png" width="533" style="display: block; margin: auto;" /&gt;
+
+.footnote[Source: [Bitbucket tutorials](https://www.atlassian.com/git/tutorials/using-branches)]
+
+--
+
+```bash
+git checkout main
+git merge BRANCH-NAME
+```
+
+---
+
 # Merge conflicts
 
 &lt;img src="img/car-merge.gif" style="display: block; margin: auto;" /&gt;
@@ -216,7 +284,7 @@ use_github()
 # Merge conflicts
 
 ```bash
-git pull origin main
+git merge documentation
 # Auto-merging README.md
 # CONFLICT (content): Merge conflict in README.md
 # Automatic merge failed; fix conflicts and then commit the result.
@@ -246,31 +314,6 @@ Please contact me at ben@bensoltoff.com
 - Attempt to push to GitHub
 - Pull from GitHub, resolve merge conflicts
 - Stage, commit, and push
-
----
-
-# Git for collaboration
-
-&lt;img src="img/bryan-2.jpeg" width="445" style="display: block; margin: auto;" /&gt;
-
-.footnote[Source: [Excuse Me, Do You Have a Moment to Talk About Version Control?](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928)]
-
----
-
-# Branching
-
-&lt;img src="img/01 Git branch.svg" style="display: block; margin: auto;" /&gt;
-
-.footnote[Source: [Bitbucket tutorials](https://www.atlassian.com/git/tutorials/using-branches)]
-
----
-
-# ⏱ Create a branch
-
-1. Create a branch using RStudio
-1. Modify a file in the repo
-1. Stage, commit, and push to GitHub
-1. Check the repo on GitHub -- what has changed?
 
 ---
 
@@ -304,8 +347,16 @@ Please contact me at ben@bensoltoff.com
 
 # Forking
 
+&lt;img src="img/fork-and-clone.png" width="1280" style="display: block; margin: auto;" /&gt;
+
+.footnote[Source: [Happy Git with R](https://happygitwithr.com/fork-and-clone.html)]
+
+---
+
+# Forking
+
 ```r
-create_from_github("OWNER/REPO")
+usethis::create_from_github("OWNER/REPO")
 ```
 
 - Or interactively on GitHub
@@ -324,6 +375,7 @@ create_from_github("OWNER/REPO")
 
 - Issues
 - Private repos
+- [Free GitHub Pro while you are a student](https://education.github.com/discount_requests/student_application)
 
 ---
 
@@ -331,6 +383,19 @@ create_from_github("OWNER/REPO")
 
 - [Pull request helpers](https://usethis.r-lib.org/articles/pr-functions.html)
 - [All the `usethis` git functions](https://usethis.r-lib.org/reference/index.html#git-and-github)
+
+---
+
+# Don't use RStudio much?
+
+Not required for Git!
+
+--
+
+
+- Pick a [Git client](https://git-scm.com/downloads/guis) (or do it all in the shell!)
+- Check if your IDE has Git integration
+- Use a [project-oriented workflow](https://rstats.wtf/project-oriented-workflow.html)
 
 ---
 

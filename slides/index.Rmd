@@ -54,7 +54,7 @@ include_graphics(path = "https://octodex.github.com/images/original.png")
 
 # Why bother?
 
---
+.pull-left[
 
 ## Will it hurt?
 
@@ -62,14 +62,25 @@ include_graphics(path = "https://octodex.github.com/images/original.png")
 
 - More complicated workflow
 - Clunky at first
-- Break bad habits
-
---
+- Need to break bad habits
 
 ## What's the payoff?
 
 - Ease of access
 - Collaboration
+
+]
+
+--
+
+.pull-right[
+
+```{r fig.align = "center"}
+include_graphics(path = "https://media.giphy.com/media/JuWT34QY0AodfuweLa/giphy.gif")
+```
+
+]
+
 
 ---
 
@@ -78,6 +89,10 @@ include_graphics(path = "https://octodex.github.com/images/original.png")
 ```{bash, echo = TRUE}
 which git
 ```
+
+--
+
+- [Install Git](https://git-scm.com/)
 
 ---
 
@@ -88,8 +103,7 @@ which git
 ## `usethis`
 
 ```r
-## install if needed
-## install.packages("usethis")
+# install.packages("usethis")
 
 library(usethis)
 use_git_config(
@@ -124,7 +138,7 @@ git config --global init.defaultBranch main
 
 # `r emo::ji("stopwatch")` Create a local Git repo
 
-- Run `use_course("css-skills/practice-repo")`
+- Run `usethis::use_course("css-skills/practice-repo")` in the console
 - Create Git repo with `use_git()`
 - Practice generating **commits**
 
@@ -141,7 +155,7 @@ git config --global init.defaultBranch main
 # `.gitignore`
 
 ```r
-edit_git_ignore(scope = "project")
+usethis::edit_git_ignore(scope = "project")
 ```
 
 ---
@@ -165,12 +179,12 @@ usethis::create_github_token()
 ```
 
 ```r
-> gitcreds::gitcreds_set()
+gitcreds::gitcreds_set()
 
-? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
--> Adding new credentials...
--> Removing credentials from cache...
--> Done.
+#> ? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+#> -> Adding new credentials...
+#> -> Removing credentials from cache...
+#> -> Done.
 ```
 
 ---
@@ -197,6 +211,14 @@ include_graphics(path = "https://media.giphy.com/media/vmon3eAOp1WfK/giphy.gif")
 
 ---
 
+# Get a sitrep
+
+```r
+usethis::git_sitrep()
+```
+
+---
+
 # `r emo::ji("stopwatch")` New project, GitHub first
 
 - Create a Git controlled project already connected to GitHub
@@ -217,6 +239,62 @@ include_graphics(path = "https://media.giphy.com/media/vmon3eAOp1WfK/giphy.gif")
 
 ---
 
+# Git for collaboration
+
+```{r fig.align = "center"}
+include_graphics(path = "img/bryan-2.jpeg")
+```
+
+.footnote[Source: [Excuse Me, Do You Have a Moment to Talk About Version Control?](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928)]
+
+---
+
+# Git for collaboration
+
+```{r fig.align = "center"}
+include_graphics(path = "img/bryan-5.jpeg")
+```
+
+.footnote[Source: [Excuse Me, Do You Have a Moment to Talk About Version Control?](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928)]
+
+---
+
+# Branching
+
+```{r fig.align = "center"}
+include_graphics(path = "img/01 Git branch.svg")
+```
+
+.footnote[Source: [Bitbucket tutorials](https://www.atlassian.com/git/tutorials/using-branches)]
+
+---
+
+# `r emo::ji("stopwatch")` Create a branch
+
+1. Create a branch using RStudio
+1. Modify a file in the repo
+1. Stage, commit, and push to GitHub
+1. Check the repo on GitHub -- what has changed?
+
+---
+
+# Merging branches
+
+```{r fig.align = "center"}
+include_graphics(path = "img/02 Branch-1 kopiera.png")
+```
+
+.footnote[Source: [Bitbucket tutorials](https://www.atlassian.com/git/tutorials/using-branches)]
+
+--
+
+```bash
+git checkout main
+git merge BRANCH-NAME
+```
+
+---
+
 # Merge conflicts
 
 ```{r fig.align = "center"}
@@ -228,7 +306,7 @@ include_graphics(path = "img/car-merge.gif")
 # Merge conflicts
 
 ```bash
-git pull origin main
+git merge documentation
 # Auto-merging README.md
 # CONFLICT (content): Merge conflict in README.md
 # Automatic merge failed; fix conflicts and then commit the result.
@@ -258,35 +336,6 @@ Please contact me at ben@bensoltoff.com
 - Attempt to push to GitHub
 - Pull from GitHub, resolve merge conflicts
 - Stage, commit, and push
-
----
-
-# Git for collaboration
-
-```{r fig.align = "center"}
-include_graphics(path = "img/bryan-2.jpeg")
-```
-
-.footnote[Source: [Excuse Me, Do You Have a Moment to Talk About Version Control?](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1399928)]
-
----
-
-# Branching
-
-```{r fig.align = "center"}
-include_graphics(path = "img/01 Git branch.svg")
-```
-
-.footnote[Source: [Bitbucket tutorials](https://www.atlassian.com/git/tutorials/using-branches)]
-
----
-
-# `r emo::ji("stopwatch")` Create a branch
-
-1. Create a branch using RStudio
-1. Modify a file in the repo
-1. Stage, commit, and push to GitHub
-1. Check the repo on GitHub -- what has changed?
 
 ---
 
@@ -324,8 +373,18 @@ include_graphics(path = "https://media.giphy.com/media/U4XP86hPyfy29A9tbl/giphy.
 
 # Forking
 
+```{r fig.align = "center"}
+include_graphics(path = "img/fork-and-clone.png")
+```
+
+.footnote[Source: [Happy Git with R](https://happygitwithr.com/fork-and-clone.html)]
+
+---
+
+# Forking
+
 ```r
-create_from_github("OWNER/REPO")
+usethis::create_from_github("OWNER/REPO")
 ```
 
 - Or interactively on GitHub
@@ -344,6 +403,7 @@ create_from_github("OWNER/REPO")
 
 - Issues
 - Private repos
+- [Free GitHub Pro while you are a student](https://education.github.com/discount_requests/student_application)
 
 ---
 
@@ -351,6 +411,19 @@ create_from_github("OWNER/REPO")
 
 - [Pull request helpers](https://usethis.r-lib.org/articles/pr-functions.html)
 - [All the `usethis` git functions](https://usethis.r-lib.org/reference/index.html#git-and-github)
+
+---
+
+# Don't use RStudio much?
+
+Not required for Git!
+
+--
+
+
+- Pick a [Git client](https://git-scm.com/downloads/guis) (or do it all in the shell!)
+- Check if your IDE has Git integration
+- Use a [project-oriented workflow](https://rstats.wtf/project-oriented-workflow.html)
 
 ---
 
