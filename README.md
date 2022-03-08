@@ -36,5 +36,6 @@ We will be using GitHub in this workshop for version control and publishing. Sig
 
 ## Additional resources
 
-- [*Happy Git and GitHub for the useR*](https://happygitwithr.com/) by Jenny Bryan, the STAT 545 TAs, and Jim Hester - a comprehensive guide to "git"-ing started with Git, GitHub, and R/RStudio
+- [Slides from the workshop](https://css-skills.github.io/intro-to-git/slides/)
+- [*Happy Git and GitHub for the useR*](https://happygitwithr.com/) by Jenny Bryan, the STAT 545 TAs, and Jim Hester - a comprehensive guide to "git"-ing started with Git, GitHub, and R/RStudio. Covers more complicated scenarios and workflows than we have time to cover in this workshop.
 
